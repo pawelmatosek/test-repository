@@ -10,6 +10,7 @@ namespace FirstHomeWork
     [TestFixture]
     public class MyFirstTest
     {
+		
         private IWebDriver driver;
         private WebDriverWait wait;
 
