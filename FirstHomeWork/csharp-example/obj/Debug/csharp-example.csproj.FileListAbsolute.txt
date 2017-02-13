@@ -1,0 +1,13 @@
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\csharp-example.dll
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\csharp-example.pdb
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\nunit.framework.dll
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\WebDriver.dll
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\WebDriver.Support.dll
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\nunit.framework.xml
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\WebDriver.xml
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\WebDriver.Support.xml
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\obj\Debug\csharp-example.dll
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\obj\Debug\csharp-example.pdb
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\chromedriver.exe
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\bin\Debug\chromedriver-license.txt
+c:\users\matos\documents\visual studio 2013\Projects\csharp-example\csharp-example\obj\Debug\csharp-example.csprojResolveAssemblyReference.cache
