@@ -9,10 +9,7 @@ namespace SecoundHomeWork
 {
     class ClickElement
     {
-        public ClickElement()
-        {
-            //_driver = WebDriver.ManageWebDriverInstance;
-        }
+        public ClickElement() {}
 
         public void click(IWebElement elementToClick)
         {
