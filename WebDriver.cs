@@ -3,12 +3,13 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace SecoundHomeWork
+namespace ThirdHomeWork
 {
     public static class WebDriver
     {
         static IWebDriver _webDriverInstance;
         static WebDriverWait _wait;
+
         public static IWebDriver ManageWebDriverInstance
         {
             get
@@ -16,12 +17,17 @@ namespace SecoundHomeWork
                 if (_webDriverInstance == null)
                 {
                     _webDriverInstance = new ChromeDriver();
-                    _webDriverInstance.Url = ApplicationData.applicationAddress;
+                    _webDriverInstance.Url = ApplicationData.administatorPanelAddress;
                     _wait = new WebDriverWait(_webDriverInstance, TimeSpan.FromSeconds(60));
                 }
                 return _webDriverInstance;
             }
-            set { }
+            set {  }
+        }
+        
+        public static void Refresh()
+        {
+            _webDriverInstance.Navigate().Refresh();
         }
     }
 }

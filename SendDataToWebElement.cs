@@ -7,7 +7,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace SecoundHomeWork
+namespace ThirdHomeWork
 {
     public class SendDataToWebElement
     {

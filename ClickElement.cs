@@ -1,15 +1,23 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SecoundHomeWork
+namespace ThirdHomeWork
 {
     class ClickElement
     {
-        public ClickElement() {}
+        public void clickAllElements(ReadOnlyCollection<IWebElement> elementsToClick)
+        {
+            foreach(var element in elementsToClick)
+            {
+                click(element);
+                WebDriver.Refresh();
+            }
+        }
 
         public void click(IWebElement elementToClick)
         {

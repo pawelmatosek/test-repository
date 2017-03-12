@@ -2,8 +2,11 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 
-namespace SecoundHomeWork
+namespace ThirdHomeWork
 {
     public class GetWebElement
     {
@@ -19,6 +22,23 @@ namespace SecoundHomeWork
         {
             IWebElement webElement = CheckIfElementIsAvailable(elementName);
             return webElement;
+        }
+
+        public ReadOnlyCollection<IWebElement> GetElementsOnLeftSidebar(string sideBarName)
+        {
+            var WebElements = _driver.FindElements(By.CssSelector(sideBarName));
+            if (WebElements.Count == 0)
+                throw new Exception("Error occours on finding elements on left application sidebar");
+            return WebElements;
+        }
+
+        public IWebElement GetConcreteElement(string sideBarName, string concreteElementId)
+        {
+            var WebElementsAddress = sideBarName + concreteElementId;
+            var WebElement = _driver.FindElement(By.CssSelector(WebElementsAddress));
+            if (object.ReferenceEquals(WebElement, null))
+                throw new Exception("Error occours on finding concrete elements on left application sidebar");
+            return WebElement;
         }
 
         public IWebElement CheckIfElementIsAvailable(WebElementToFind elementName)
