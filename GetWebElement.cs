@@ -24,21 +24,18 @@ namespace ThirdHomeWork
             return webElement;
         }
 
+        public int GetImagesNumberOnWebsite(string locatorFinderCommand)
+        {
+            var numberOfImagesOnElement = _driver.FindElements(By.CssSelector(locatorFinderCommand)).Count;
+            return numberOfImagesOnElement;
+        }
+
         public ReadOnlyCollection<IWebElement> GetElementsOnLeftSidebar(string sideBarName)
         {
             var WebElements = _driver.FindElements(By.CssSelector(sideBarName));
             if (WebElements.Count == 0)
                 throw new Exception("Error occours on finding elements on left application sidebar");
             return WebElements;
-        }
-
-        public IWebElement GetConcreteElement(string sideBarName, string concreteElementId)
-        {
-            var WebElementsAddress = sideBarName + concreteElementId;
-            var WebElement = _driver.FindElement(By.CssSelector(WebElementsAddress));
-            if (object.ReferenceEquals(WebElement, null))
-                throw new Exception("Error occours on finding concrete elements on left application sidebar");
-            return WebElement;
         }
 
         public IWebElement CheckIfElementIsAvailable(WebElementToFind elementName)

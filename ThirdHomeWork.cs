@@ -16,8 +16,9 @@ namespace ThirdHomeWork
         private Dictionary<IWebElement, string> usedIWebElements = new Dictionary<IWebElement,string>();
         ClickElement confirmLogin = new ClickElement();
         SendDataToWebElement sendLoginData = new SendDataToWebElement();
+        Dictionary<int, List<string>> subcategories = new Dictionary<int, List<string>>();
         ClickSubcategories clickSubcategories;
-        
+        int numberOfImagesOnSite;
 
         [SetUp]
         public void start()
@@ -30,18 +31,26 @@ namespace ThirdHomeWork
         }
 
         [Test]
-        public void FirstTest()
+        public void SecoundTest()
         {
-            //Click all categories and subCategories on left panel
-            ClickMainCategories ClickElementsOnLeftPanel = new ClickMainCategories(ApplicationData.leftBoxLocation);
+            //Click all categories and subCategories on left panel and count images
+            ClickCategories ClickElementsOnLeftPanel = new ClickCategories(ApplicationData.leftBoxLocation);
+            subcategories = new SubcategoriesOnWebsite().CollectSubcategoriesOnWebsite();
+            numberOfImagesOnSite += new GetWebElement().GetImagesNumberOnWebsite(ApplicationData.imagesOnLeftPanel);
+            
             int numberOfElementsOnSideBar = new GetWebElement().GetElementsOnLeftSidebar(ApplicationData.leftBoxLocation).Count;
-            clickSubcategories = new ClickSubcategories(numberOfElementsOnSideBar);
-
+            clickSubcategories = new ClickSubcategories(numberOfElementsOnSideBar); 
             for (int i = 1; i < numberOfElementsOnSideBar; i++)
             {
-                ClickElementsOnLeftPanel.ClickCategories(numberOfElementToFind: i);
-                clickSubcategories.Click();
-            }    
+                numberOfImagesOnSite += new GetWebElement().GetImagesNumberOnWebsite(ApplicationData.imagesOnRightPanel);
+                ClickElementsOnLeftPanel.ClickMainCategories(numberOfElementToFind: i);
+                foreach (var subcategory in subcategories[i - 1])
+                {
+                    clickSubcategories.ClickSingleCategory(subcategory);
+                    numberOfImagesOnSite += new GetWebElement().GetImagesNumberOnWebsite(ApplicationData.imagesOnLowerRightPanel);
+                }
+            }
+            Console.WriteLine("Number of images on site: {0}", numberOfImagesOnSite);
         }
 
         [TearDown]
