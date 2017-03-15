@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ThirdHomeWork
+namespace FourthHomeWork
 {
     class ClickCategories
     {
@@ -24,8 +24,14 @@ namespace ThirdHomeWork
 
         private void PerformPreWork()
         {
-            var elementsOnSideBar = new GetWebElement().GetElementsOnLeftSidebar(_categoryLocation);
+            var elementsOnSideBar = new GetWebElement().GetElements(_categoryLocation);
             mainWebCategoriesList = new List<IWebElement>(elementsOnSideBar);
+        }
+
+        public void ClickElementOnRightPanel(IWebElement elementToClick)
+        {
+            clickElement.click(elementToClick);
+            WebDriver.Refresh();
         }
 
         public void ClickMainCategories(int numberOfElementToFind)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThirdHomeWork
+namespace FourthHomeWork
 {
     class ClickSubcategories
     {
@@ -22,7 +22,7 @@ namespace ThirdHomeWork
 
         public void Click(bool isLastSubcatalog = false)
         {
-            var checkNumberOfSubelements = new GetWebElement().GetElementsOnLeftSidebar(ApplicationData.leftBoxLocation).Count;
+            var checkNumberOfSubelements = new GetWebElement().GetElements(ApplicationData.leftBoxLocation).Count;
             if (checkNumberOfSubelements > numberOfElementsOnSideBar)
                 ClickElementsOnLeftPanel.ClickSubCategory(subcategories[numberOfSubcategory]);
             if(isLastSubcatalog == true)

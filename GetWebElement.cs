@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 
-namespace ThirdHomeWork
+namespace FourthHomeWork
 {
     public class GetWebElement
     {
@@ -30,11 +30,20 @@ namespace ThirdHomeWork
             return numberOfImagesOnElement;
         }
 
-        public ReadOnlyCollection<IWebElement> GetElementsOnLeftSidebar(string sideBarName)
+        //Method is created to prevent Stale Reference Exception
+        public List<IWebElement> GetNewGeoZonesList()
+        {
+            List<IWebElement> temporaryList = new List<IWebElement>();
+            ReadOnlyCollection<IWebElement> listOfGeoZones = new GetWebElement().GetElements(ApplicationData.getListedZones);
+            temporaryList.AddRange(listOfGeoZones);
+            return temporaryList;
+        }
+
+        public ReadOnlyCollection<IWebElement> GetElements(string sideBarName)
         {
             var WebElements = _driver.FindElements(By.CssSelector(sideBarName));
             if (WebElements.Count == 0)
-                throw new Exception("Error occours on finding elements on left application sidebar");
+                throw new Exception("Error occours on finding elements on website");
             return WebElements;
         }
 

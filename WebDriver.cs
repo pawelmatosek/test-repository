@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace ThirdHomeWork
+namespace FourthHomeWork
 {
     public static class WebDriver
     {
