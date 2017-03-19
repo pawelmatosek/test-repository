@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Drawing;
 
 namespace FourthHomeWork
 {
@@ -28,6 +29,12 @@ namespace FourthHomeWork
         {
             var numberOfImagesOnElement = _driver.FindElements(By.CssSelector(locatorFinderCommand)).Count;
             return numberOfImagesOnElement;
+        }
+
+        public IWebElement GetFirstObjectDataByXPath(string xPathLocator)
+        {
+            ReadOnlyCollection<IWebElement> ProductName = _driver.FindElements(By.XPath(xPathLocator));
+            return ProductName[0];
         }
 
         //Method is created to prevent Stale Reference Exception

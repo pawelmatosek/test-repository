@@ -17,7 +17,7 @@ namespace FourthHomeWork
                 if (_webDriverInstance == null)
                 {
                     _webDriverInstance = new ChromeDriver();
-                    _webDriverInstance.Url = ApplicationData.administatorPanelAddress;
+                    _webDriverInstance.Url = ApplicationData.applicationAddress;
                     _wait = new WebDriverWait(_webDriverInstance, TimeSpan.FromSeconds(60));
                 }
                 return _webDriverInstance;
