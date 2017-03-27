@@ -189,31 +189,4 @@ namespace UnitTestProject3
             Data.Add(new ConfirmPassword(confirmPassword));
         }
     }
-
-
-    public class UserData
-    {
-        string _firstName;
-        string _lastName;
-        string _address1;
-        string _address2;
-        string _postalCode;
-        string _city;
-        string _country;
-        string _eMail;
-        string _phoneNumber;
-        string _password;
-
-        List<string> userDataForRegistration;
-
-        public UserData()
-        {
-            userDataForRegistration = new List<string>();
-           // userDataForRegistration.AddRange("","");
-        }
-
-        //Guid g;
-        //g = Guid.NewGuid();
-
-    }
 }
