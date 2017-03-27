@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace FourthHomeWork
+namespace FifthHomeWork
 {
     public static class WebDriver
     {
@@ -17,7 +17,7 @@ namespace FourthHomeWork
                 if (_webDriverInstance == null)
                 {
                     _webDriverInstance = new ChromeDriver();
-                    _webDriverInstance.Url = ApplicationData.applicationAddress;
+                    _webDriverInstance.Url = ApplicationData.administatorPanelAddress;
                     _wait = new WebDriverWait(_webDriverInstance, TimeSpan.FromSeconds(60));
                 }
                 return _webDriverInstance;

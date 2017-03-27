@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FourthHomeWork
+namespace FifthHomeWork
 {
     class ClickSubcategories
     {
@@ -13,6 +13,11 @@ namespace FourthHomeWork
         Dictionary<int, List<string>> subcategories;
         int numberOfElementsOnSideBar;
         int numberOfSubcategory;
+
+        public ClickSubcategories()
+        {
+            subcategories = ElementsOnLeftSideBar.CollectSubcategoriesOnWebsite();
+        }
 
         public ClickSubcategories(int elementsOnSideBar)
         {
