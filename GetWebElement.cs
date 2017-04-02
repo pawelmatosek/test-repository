@@ -47,6 +47,44 @@ namespace FifthHomeWork
             return WebElements;
         }
 
+        public ReadOnlyCollection<IWebElement> GetElementsByXPath(string elementToFind)
+        {
+            var WebElements = _driver.FindElements(By.XPath(elementToFind));
+            if (WebElements.Count == 0)
+                throw new Exception("Error occours on finding elements on website by XPath");
+            return WebElements;
+        }
+
+        public IWebElement GetElementByXPath(string elementToFind, int indexToFind = 0)
+        {
+            var WebElements = GetElementsByXPath(elementToFind);
+            return WebElements[indexToFind];
+        }
+
+        public IWebElement GetElement(string elementToFind)
+        {
+            var WebElements = _driver.FindElements(By.CssSelector(elementToFind));
+            if (WebElements.Count == 0)
+                throw new Exception("Error occours on finding element on website");
+            return WebElements[0];
+        }
+
+        public IWebElement GetDropdownListElement(string elementToFind, string dropdownElementToClick = "")
+        {
+            ReadOnlyCollection<IWebElement> dropdownList = _driver.FindElements(By.Name(elementToFind));//elementToFind  "default_category_id"
+            if (dropdownList.Count == 0)
+                throw new Exception("Error occours on dropdown list on website");
+            return dropdownList[0];
+        }
+
+        public IWebElement DropDownListSelectByValue(IWebElement dropdown)
+        {
+            ReadOnlyCollection<IWebElement> element = dropdown.FindElements(By.CssSelector("option[value=2]"));
+            return element[0];
+        }
+
+       // public void Clic
+
         public IWebElement CheckIfElementIsAvailable(WebElementToFind elementName)
         {
             try

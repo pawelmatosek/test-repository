@@ -30,7 +30,7 @@ namespace FifthHomeWork
 
         public void ClickElementOnRightPanel(IWebElement elementToClick)
         {
-            clickElement.click(elementToClick);
+            clickElement.Click(elementToClick);
             WebDriver.Refresh();
         }
 
@@ -39,7 +39,7 @@ namespace FifthHomeWork
             PerformPreWork();
             IWebElement mainWebCategoryToClick = mainWebCategoriesList.Find(x => x.Text.Contains(MainCategoriesOnWebSite.CategoriesText[numberOfElementToFind]));
            
-            clickElement.click(mainWebCategoryToClick);
+            clickElement.Click(mainWebCategoryToClick);
             WebDriver.Refresh();
         }
 

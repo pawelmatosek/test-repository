@@ -10,16 +10,16 @@ namespace FifthHomeWork
 {
     class ClickElement
     {
-        public void clickAllElements(ReadOnlyCollection<IWebElement> elementsToClick)
+        public void ClickAllElements(ReadOnlyCollection<IWebElement> elementsToClick)
         {
             foreach(var element in elementsToClick)
             {
-                click(element);
+                Click(element);
                 WebDriver.Refresh();
             }
         }
 
-        public void click(IWebElement elementToClick)
+        public void Click(IWebElement elementToClick)
         {
             TryToClickElement(elementToClick);
         }
