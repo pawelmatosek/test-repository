@@ -76,5 +76,18 @@
         public static string thirdDimensionDataLocator = ".//*[tbody]//div[@id='tab-data']//..//span[@class='input-wrapper']//input[@name='dim_z']";
 
         public static string attributesDataLocator = "div[id='tab-data'] textarea[name='attributes[en]']";
+        
+        //Zadanie 13
+        public static string standardApplicationLocator = "div[class='header'] i[class='fa fa-chevron-circle-left']";
+        public static string ducksProductLocator = "div[id='box-most-popular'] ul[class='listing-wrapper products'] li[class='product column shadow hover-light']";
+        public static string homeImageLocator = "li[class='general-0'] i[class='fa fa-home']";
+        public static string buttonToAddNewProductLocator = "td[class='quantity'] button[name='add_cart_product']";
+        public static string itemCartLocator = "div[id='cart'] a[class='content']";
+        public static string removeItemFromCartLocator = "form[enctype='application/x-www-form-urlencoded'] button[value='Remove']";
+
+        public static string waitingTest = "div[class='content'] img[title='ACME Corp.']";
+        public static string checkLocator = "td[class='options'] select[name='options[Size]']";
+
+        public static string productSizeSelectorLocator = ".//*[body]//div[@id='main']//..//select[@name='options[Size]']//option";
     }
 }

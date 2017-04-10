@@ -71,7 +71,7 @@ namespace FifthHomeWork
 
         public IWebElement GetDropdownListElement(string elementToFind, string dropdownElementToClick = "")
         {
-            ReadOnlyCollection<IWebElement> dropdownList = _driver.FindElements(By.Name(elementToFind));//elementToFind  "default_category_id"
+            ReadOnlyCollection<IWebElement> dropdownList = _driver.FindElements(By.Name(elementToFind));
             if (dropdownList.Count == 0)
                 throw new Exception("Error occours on dropdown list on website");
             return dropdownList[0];
@@ -83,7 +83,10 @@ namespace FifthHomeWork
             return element[0];
         }
 
-       // public void Clic
+       public bool IsElementPresent(By locator)
+        {
+            return _driver.FindElements(locator).Count > 0;
+        }
 
         public IWebElement CheckIfElementIsAvailable(WebElementToFind elementName)
         {
