@@ -89,5 +89,9 @@
         public static string checkLocator = "td[class='options'] select[name='options[Size]']";
 
         public static string productSizeSelectorLocator = ".//*[body]//div[@id='main']//..//select[@name='options[Size]']//option";
+
+        //Zad14
+        public static string addNewCategoryLocator = "tbody div[style='float: right;'] a[href='http://localhost/litecart/admin/?app=catalog&doc=edit_category&parent_id=0']";
+        public static string linkToExternalSite = "div[id='tab-general'] i[class='fa fa-external-link']";
     }
 }

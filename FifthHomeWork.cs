@@ -25,6 +25,7 @@ namespace FifthHomeWork
         GetWebElement webDriver;
         WebDriverWait wait;
         int numberOfWebElementsToAdd = 3;
+        ClickSubcategories clickSubcategories;
 
         [SetUp]
         public void start()
@@ -40,35 +41,27 @@ namespace FifthHomeWork
 
         [Test]
         public void TwelfthTest() 
-        {   
-            //GoTo Standard Application version
-            standartApplication.Click(webDriver.GetElement(ApplicationData.standardApplicationLocator));
+        {
 
-            for (int i = 0; i < numberOfWebElementsToAdd; i++)
-            {
-                standartApplication.Click(webDriver.GetElement(ApplicationData.ducksProductLocator));
-                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(ApplicationData.waitingTest)));
-                if (webDriver.IsElementPresent(By.CssSelector(ApplicationData.checkLocator)))
-                    manageNewProduct.Click(webDriver.GetElementByXPath(ApplicationData.productSizeSelectorLocator, indexToFind: 1));
-                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(ApplicationData.buttonToAddNewProductLocator)));
-                standartApplication.Click(webDriver.GetElement(ApplicationData.buttonToAddNewProductLocator)); 
-                standartApplication.Click(webDriver.GetElement(ApplicationData.homeImageLocator));
-            }
-            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(ApplicationData.itemCartLocator)));
-            IWebElement fullCart = webDriver.GetElement(ApplicationData.itemCartLocator);
-            Console.WriteLine("Cart data: {0}", fullCart.Text);
-            standartApplication.Click(webDriver.GetElement(ApplicationData.itemCartLocator));
+            string mainWindow = WebDriver.ManageWebDriverInstance.CurrentWindowHandle;
+            //GoTo Catalog Category
+            ClickCategories ClickElementsOnLeftPanel = new ClickCategories(ApplicationData.leftBoxLocation);
+            int numberOfCountriesCategory = MainCategoriesOnWebSite.CategoriesText.IndexOf("Catalog");
+            ClickElementsOnLeftPanel.ClickMainCategories(numberOfCountriesCategory);
+            ClickSubcategories clickSubcategories = new ClickSubcategories();
+            clickSubcategories.ClickSingleCategory("catalog");
 
-            for (int i = 0; i < numberOfWebElementsToAdd; i++)
-            {
-                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(ApplicationData.removeItemFromCartLocator)));
-                standartApplication.Click(webDriver.GetElement(ApplicationData.removeItemFromCartLocator));
-            }
-            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(ApplicationData.itemCartLocator)));
-            IWebElement emptyCart = webDriver.GetElement(ApplicationData.itemCartLocator);
-            Console.WriteLine("Cart data: {0}", emptyCart.Text);
-            standartApplication.Click(webDriver.GetElement(ApplicationData.itemCartLocator));
+            manageNewProduct.Click(webDriver.GetElement(ApplicationData.addNewCategoryLocator));
 
+            manageNewProduct.Click(webDriver.GetElement(ApplicationData.addNewCategoryLocator));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(ApplicationData.linkToExternalSite)));
+       
+            ICollection<string> oldWindows = WebDriver.ManageWebDriverInstance.WindowHandles;
+
+            WebDriver.ManageWebDriverInstance.SwitchTo().Window(oldWindows.GetEnumerator().MoveNext().ToString());
+
+            WebDriver.ManageWebDriverInstance.Close();
+            WebDriver.ManageWebDriverInstance.SwitchTo().Window(mainWindow);
         }
 
         [TearDown]
